@@ -117,6 +117,7 @@ https://github.com/wangrpeng/gitStudy/gitStudy.git
 分支管理:
 创建与删除分支:
 git checkout -b dev :在当前分支上(一般是master分之) ,创建dev分支,然后切换到dev分支
+
 这条命令相当于:
 git branch dev 	: 创建dev分支
 git checkout dev :切换到dev分支
@@ -232,6 +233,8 @@ git clone git@github.com:wangrpeng/gitStudy.git
 当从远程仓库clone,默认情况下,本地只有master分支,
 现在需要在dev分支上开发,就必须创建远程origin的dev到本地,
 git checkout -b dev origin/dev
+git checkout --track origin/dev
+以上两个命令具有相同的效果, 不同点在于命令1可以自定义本地分支名,命令2则是默认和远程分支名保持一致.
 现在就可以在本地dev分支上继续修改,然后时不时把本地dev分支push到远程dev
 不巧的是,其他人修改了相同的文件,冲突了! 很简单,先git pull把最新的提交从origin/dev抓取下来,合并后push.
 执行 git pull  失败了!,原因是没有指定本地dev分支与远程origin/dev分支的链接,设置dev 和origin/dev的链接:
